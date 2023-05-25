@@ -1,4 +1,4 @@
-# Simple Shell - Simple shell team project
+# MONTY LANGUAGE - Implementing 'STACKS, QUEUES - LIFO, FIFO' project
 
 This is the solution for the STACKS, QUEUES - LIFO, FIFO  project for ALX low level programming language [ALX SWE](https://alxafrica.com). A team project to improve collaborations and problem solving skills amongst ALX students.
 
