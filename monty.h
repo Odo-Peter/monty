@@ -77,8 +77,8 @@ stack_t *__add_nodeint(stack_t **head, const int n);
 void free_listint(stack_t *head);
 
 
-void __fpush(stack_t **stack, unsigned int line_num);
-void __fpall(stack_t **stack, unsigned int line_num);
+void __fpush(stack_t **stack, unsigned int c_line);
+void __fpall(stack_t **stack, unsigned int c_line);
 void __fpint(stack_t **doubly, unsigned int c_line);
 void __fpop(stack_t **doubly, unsigned int c_line);
 void __fswap(stack_t **doubly, unsigned int c_line);
@@ -96,10 +96,13 @@ void __frotl(stack_t **doubly, unsigned int c_line);
 void __frotr(stack_t **doubly, unsigned int c_line);
 
 
-int __sch(char *s, char c);
+void (*__get_opcodes(char *opc))(stack_t **stack, unsigned int line_num);
+
+
+int __search(char *s, char c);
 char *__strtok(char *s, char *d);
 void *__realloc(void *ptr, unsigned int old_size, unsigned int new_size);
-void *__calloc(unsigned int nmemb, unsigned int size);
+void *__calloc(unsigned int num_el, unsigned int size);
 int __strcmp(char *s1, char *s2);
 
 void free_glo_var(void);

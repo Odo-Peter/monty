@@ -1,13 +1,13 @@
 #include "monty.h"
 
 /**
- * __push - pushes an element to the stack
+ * __fpush - pushes an element to the stack
  *
  * @doubly: head of the linked list
  * @c_line: line number
  * Return: void function
  */
-void __push(stack_t **doubly, unsigned int c_line)
+void __fpush(stack_t **doubly, unsigned int c_line)
 {
 	int n, j;
 
@@ -33,22 +33,22 @@ void __push(stack_t **doubly, unsigned int c_line)
 	n = atoi(glo_var.arg);
 
 	if (glo_var.lifo == 1)
-		add_dnodeint(doubly, n);
+		__add_nodeint(doubly, n);
 	else
-		add_dnodeint_end(doubly, n);
+		__add_nodeint_end(doubly, n);
 }
 
 /**
- * _pall - prints all values on the stack
+ * __fpall - prints all values on the stack
  *
  * @doubly: head of the linked list
- * @cline: line numbers
+ * @c_line: line numbers
  * Return: no return
  */
-void _pall(stack_t **doubly, unsigned int cline)
+void __fpall(stack_t **doubly, unsigned int c_line)
 {
 	stack_t *aux;
-	(void)cline;
+	(void)c_line;
 
 	aux = *doubly;
 
@@ -60,21 +60,21 @@ void _pall(stack_t **doubly, unsigned int cline)
 }
 
 /**
- * _pint - prints the value at the top of the stack
+ * __fpint - prints the value at the top of the stack
  *
  * @doubly: head of the linked list
- * @cline: line number
+ * @c_line: line number
  * Return: no return
  */
-void _pint(stack_t **doubly, unsigned int cline)
+void __fpint(stack_t **doubly, unsigned int c_line)
 {
-	(void)cline;
+	(void)c_line;
 
 	if (*doubly == NULL)
 	{
-		dprintf(2, "L%u: ", cline);
+		dprintf(2, "L%u: ", c_line);
 		dprintf(2, "can't pint, stack empty\n");
-		free_vglo();
+		free_glo_var();
 		exit(EXIT_FAILURE);
 	}
 
@@ -82,20 +82,20 @@ void _pint(stack_t **doubly, unsigned int cline)
 }
 
 /**
- * _pop - removes the top element of the stack
+ * __fpop - removes the top element of the stack
  *
  * @doubly: head of the linked list
- * @cline: line number
+ * @c_line: line number
  * Return: no return
  */
-void _pop(stack_t **doubly, unsigned int cline)
+void __fpop(stack_t **doubly, unsigned int c_line)
 {
 	stack_t *aux;
 
 	if (doubly == NULL || *doubly == NULL)
 	{
-		dprintf(2, "L%u: can't pop an empty stack\n", cline);
-		free_vglo();
+		dprintf(2, "L%u: can't pop an empty stack\n", c_line);
+		free_glo_var();
 		exit(EXIT_FAILURE);
 	}
 	aux = *doubly;
@@ -104,13 +104,13 @@ void _pop(stack_t **doubly, unsigned int cline)
 }
 
 /**
- * _swap - swaps the top two elements of the stack
+ * __fswap - swaps the top two elements of the stack
  *
  * @doubly: head of the linked list
- * @cline: line number
+ * @c_line: line number
  * Return: no return
  */
-void _swap(stack_t **doubly, unsigned int cline)
+void __fswap(stack_t **doubly, unsigned int c_line)
 {
 	int m = 0;
 	stack_t *aux = NULL;
@@ -122,8 +122,8 @@ void _swap(stack_t **doubly, unsigned int cline)
 
 	if (m < 2)
 	{
-		dprintf(2, "L%u: can't swap, stack too short\n", cline);
-		free_vglo();
+		dprintf(2, "L%u: can't swap, stack too short\n", c_line);
+		free_glo_var();
 		exit(EXIT_FAILURE);
 	}
 
