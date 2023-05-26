@@ -100,7 +100,7 @@ void __fmod(stack_t **doubly, unsigned int c_line)
 
 	aux = (*doubly)->next;
 	aux->n %= (*doubly)->n;
-	_pop(doubly, cline);
+	__fpop(doubly, c_line);
 }
 
 
